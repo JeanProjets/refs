@@ -1,4 +1,4 @@
-# 🔥 Cheat Sheet — Firewall Linux (firewalld & UFW)
+#  Cheat Sheet — Firewall Linux (firewalld & UFW)
 
 > **RHEL/Rocky Linux** → `firewall-cmd`
 > **Debian/Ubuntu/Proxmox** → `ufw`
@@ -28,7 +28,7 @@ sudo firewall-cmd --get-active-zones
 
 ## 2. firewalld — Ouvrir des services/ports
 
-> ⚠️ **TOUJOURS** utiliser `--permanent` puis `--reload` pour persister !
+>  **TOUJOURS** utiliser `--permanent` puis `--reload` pour persister !
 
 ```bash
 # Autoriser un SERVICE connu (http, https, ssh, ftp...)
@@ -92,7 +92,7 @@ sudo firewall-cmd --permanent --add-rich-rule='
   source address="10.0.0.0/24"
   reject'
 
-# ⚡ Appliquer
+#  Appliquer
 sudo firewall-cmd --reload
 
 # Vérifier

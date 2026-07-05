@@ -1,4 +1,4 @@
-# 🌍 Cheat Sheet — Apache Web Server (httpd / apache2)
+# Cheat Sheet — Apache Web Server (httpd / apache2)
 
 > **RHEL/Rocky Linux** → paquet `httpd`, service `httpd`
 > **Debian/Ubuntu** → paquet `apache2`, service `apache2`
@@ -105,7 +105,7 @@ curl http://localhost
 
 ## 5. Ouvrir le port 80 dans le firewall
 
-> ⚠️ **Étape critique !** Sans cette étape, curl depuis VM-CLIENT échouera même si le ping fonctionne.
+>  **Étape critique !** Sans cette étape, curl depuis VM-CLIENT échouera même si le ping fonctionne.
 
 ### Sur Rocky Linux (firewalld)
 ```bash
@@ -218,17 +218,17 @@ curl http://10.10.1.10     # Doit afficher le HTML
 
 ```bash
 # Sur VM-WEB (10.10.1.10)
-ip a show eth0                          # ✅ IP = 10.10.1.10
-ip r | grep default                     # ✅ gateway = 10.10.1.254
-sudo systemctl is-active httpd          # ✅ active
-ss -tulpn | grep :80                    # ✅ Apache écoute
-sudo firewall-cmd --list-services       # ✅ http présent
-curl http://localhost | head -1         # ✅ HTML retourné
+ip a show eth0                          #  IP = 10.10.1.10
+ip r | grep default                     #  gateway = 10.10.1.254
+sudo systemctl is-active httpd          #  active
+ss -tulpn | grep :80                    #  Apache écoute
+sudo firewall-cmd --list-services       #  http présent
+curl http://localhost | head -1         #  HTML retourné
 
 # Sur Proxmox
-cat /proc/sys/net/ipv4/ip_forward       # ✅ = 1
+cat /proc/sys/net/ipv4/ip_forward       # = 1
 
 # Sur VM-CLIENT (10.10.2.20)
-ping -c 3 10.10.1.10                    # ✅ PING OK
-curl http://10.10.1.10                  # ✅ Site affiché 🎉
+ping -c 3 10.10.1.10                    #  PING OK
+curl http://10.10.1.10                  #  Site affiché 
 ```

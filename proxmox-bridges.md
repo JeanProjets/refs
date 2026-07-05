@@ -1,4 +1,4 @@
-# 🖥️ Cheat Sheet — Proxmox : Bridges, Réseaux Isolés & Routage IP
+# Cheat Sheet — Proxmox : Bridges, Réseaux Isolés & Routage IP
 
 > Référence pour la gestion réseau dans Proxmox VE.
 > Architecture : **Proxmox (Debian)** avec bridges comme switches virtuels.
@@ -118,7 +118,7 @@ brctl show vmbr1
 
 ---
 
-## 5. ⭐ IP Forwarding — L'étape clé du routage inter-VM
+## 5. IP Forwarding — L'étape clé du routage inter-VM
 
 > **Contexte :** Le Proxmox a une patte dans chaque réseau (vmbr1 et vmbr2).
 > Il faut lui dire de **transférer les paquets** entre les deux réseaux.
@@ -185,8 +185,8 @@ sudo nmcli connection modify "eth0" \
 sudo nmcli connection up "eth0"
 
 # Test : pinger la gateway
-ping -c 3 10.10.2.254   # ✅ doit marcher
-ping -c 3 10.10.1.10    # ❌ échoue encore (ip_forward pas activé)
+ping -c 3 10.10.2.254   #  doit marcher
+ping -c 3 10.10.1.10    #  échoue encore (ip_forward pas activé)
 ```
 
 #### Sur Proxmox — Activer le routage
@@ -198,8 +198,8 @@ sysctl -p
 
 #### Vérification finale depuis VM-CLIENT
 ```bash
-ping -c 3 10.10.1.10    # ✅ doit marcher maintenant !
-curl http://10.10.1.10  # ✅ doit afficher le site Apache
+ping -c 3 10.10.1.10    #  doit marcher maintenant !
+curl http://10.10.1.10  #  doit afficher le site Apache
 ```
 
 ---

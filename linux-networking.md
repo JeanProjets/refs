@@ -28,7 +28,7 @@ nmcli connection show
 
 ## 2. Configurer une IP statique — RHEL/Rocky (nmcli)
 
-> ⚠️ Remplace `"eth0"` par le **vrai nom** de ta connexion (`nmcli connection show`)
+>  Remplace `"eth0"` par le **vrai nom** de ta connexion (`nmcli connection show`)
 
 ```bash
 # Étape 1 : Passer en mode manuel (arrêter le DHCP)
@@ -67,14 +67,19 @@ sudo nmcli connection up "eth0"
 
 ## 3. Configurer une IP statique — Debian/Ubuntu/Proxmox
 
+>  **Important :** Vérifie toujours le nom réel de ta carte réseau (souvent `ens18` sur Proxmox) avec la commande `ip link show` avant de configurer.
 > Fichier de config : `/etc/network/interfaces`
 
 ```bash
+# 1. Identifier le nom de l'interface
+ip link show
+
+# 2. Éditer le fichier
 sudo nano /etc/network/interfaces
 ```
 
 ```text
-# Exemple pour VM-WEB sur Proxmox
+# Exemple pour VM-WEB sur Proxmox (remplace ens18 par ton interface si différent)
 auto ens18
 iface ens18 inet static
     address 10.10.1.10/24
