@@ -1,11 +1,10 @@
-# 📚 Références Personnelles — Linux & Réseau
+# Références Personnelles — Linux & Réseau
 
-> Mes antisèches personnelles que je ré-utilise d'un projet à l'autre.
-> Organisées par thème, toutes testées sur RHEL 9 / Debian 12.
+https://blog.stephane-robert.info/docs/admin-serveurs/linux/reseau/
 
 ---
 
-## 📂 Index
+##  Index
 
 | Fichier | Contenu |
 |---------|---------|
@@ -16,7 +15,7 @@
 
 ---
 
-## 🔑 Commandes de survie (à mémoriser absolument)
+## Commandes de survie (à mémoriser absolument)
 
 ```bash
 ip a                         # Voir mes IPs
@@ -30,7 +29,7 @@ ss -tulpn                    # Ports en écoute
 
 ---
 
-## 🗺️ Mémo des plages IP privées (RFC 1918)
+## Mémo des plages IP privées (RFC 1918)
 
 | Plage | Masque | Usage typique |
 |-------|--------|---------------|
@@ -43,7 +42,7 @@ Ex : réseau `10.10.1.0/24` → gateway souvent `10.10.1.1` ou `10.10.1.254`
 
 ---
 
-## ⚡ Checklist avant de rendre un travail
+## Checklist avant de rendre un travail
 
 - [ ] `ip a` → IP correcte sur la bonne interface
 - [ ] `ip r` → gateway correcte (`default via ...`)
